@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>3D Magnet Tiles Builder</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Three.js from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 </head>
 <body>
   <div id="sidebar">
@@ -14,6 +12,9 @@
     <!-- Add more shape buttons later -->
   </div>
   <canvas id="three-canvas"></canvas>
+
+  <!-- Load Three.js BEFORE script.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

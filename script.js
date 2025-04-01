@@ -3,14 +3,14 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xeeeeee);
 
 // Camera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, (window.innerWidth - 200) / window.innerHeight, 0.1, 1000);
 camera.position.z = 10;
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-canvas') });
-renderer.setSize(window.innerWidth - 200, window.innerHeight); // subtract sidebar width
+renderer.setSize(window.innerWidth - 200, window.innerHeight);
 
-// Basic lighting
+// Lighting
 const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(5, 10, 7.5);
 scene.add(light);
@@ -23,6 +23,13 @@ function addTile() {
   tile.position.set(0, 0, 0);
   scene.add(tile);
 }
+
+// Handle window resize
+window.addEventListener('resize', () => {
+  camera.aspect = (window.innerWidth - 200) / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth - 200, window.innerHeight);
+});
 
 // Animation loop
 function animate() {

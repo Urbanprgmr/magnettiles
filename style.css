@@ -2,6 +2,7 @@ body {
   margin: 0;
   overflow: hidden;
   display: flex;
+  height: 100vh;
 }
 
 #sidebar {
@@ -9,7 +10,7 @@ body {
   background-color: #222;
   color: #fff;
   padding: 10px;
-  height: 100vh;
+  box-sizing: border-box;
 }
 
 canvas {
